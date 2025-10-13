@@ -1,0 +1,12 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Discussion Forum
+    url: https://github.com/OrbitRate/OrbitRate-Native/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: 📚 Documentation
+    url: https://github.com/OrbitRate/OrbitRate-Native#readme
+    about: Read the documentation for setup and usage guides
+  - name: 🔒 Security Issue
+    url: https://github.com/OrbitRate/OrbitRate-Native/security/policy
+    about: Report security vulnerabilities privately
+

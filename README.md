@@ -1,6 +1,25 @@
 # OrbitRate Native
 
-> 优雅的货币汇率转换应用 - NativeScript Vue 版本
+<div align="center">
+
+![OrbitRate Logo](docs/assets/logo.png)
+
+**优雅的货币汇率转换应用 - NativeScript Vue 版本**
+
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/OrbitRate/OrbitRate-Native/releases)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![NativeScript](https://img.shields.io/badge/NativeScript-8.9+-orange.svg)](https://nativescript.org/)
+[![Vue](https://img.shields.io/badge/Vue-2.6-brightgreen.svg)](https://vuejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue.svg)](https://www.typescriptlang.org/)
+[![iOS](https://img.shields.io/badge/iOS-14.0+-black.svg)](https://www.apple.com/ios/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg)](CODE_OF_CONDUCT.md)
+
+[Features](#-功能特性) • [Screenshots](#-截图) • [Installation](#-快速开始) • [Documentation](#-文档) • [Contributing](#-贡献) • [License](#-许可)
+
+</div>
+
+---
 
 ## 📱 项目概述
 
@@ -13,6 +32,18 @@ OrbitRate Native 是使用 NativeScript + Vue.js 开发的原生移动应用，�
 - ⚡ **即时响应**: 本地计算，零延迟
 - 📱 **优雅设计**: 精心打磨的iOS用户界面
 - 💾 **离线可用**: 本地缓存，完全离线工作
+
+## 📸 截图
+
+<div align="center">
+
+| Convert | History | Favorites | Settings |
+|---------|---------|-----------|----------|
+| ![Convert Screen](docs/screenshots/convert.png) | ![History Screen](docs/screenshots/history.png) | ![Favorites Screen](docs/screenshots/favorites.png) | ![Settings Screen](docs/screenshots/settings.png) |
+
+*Dark mode interface with elegant animations and smooth transitions*
+
+</div>
 
 ## 🚀 快速开始
 
@@ -191,16 +222,83 @@ ns build ios --for-device --release
 - **Bundle ID**: org.nativescript.OrbitRateNative
 - **Version**: 1.0.0
 
+## 🗺️ 路线图
+
+### Version 1.1.0 (Q4 2025)
+- [ ] 🌐 Exchange rate API integration
+- [ ] 🔄 Real-time rate updates
+- [ ] 🔍 Currency search functionality
+- [ ] 📊 Rate history chart
+
+### Version 1.2.0 (Q1 2026)
+- [ ] 🤖 Android platform support
+- [ ] 🔔 Rate alert notifications
+- [ ] 📤 Export conversion history
+- [ ] 🌍 Multi-language support (中文, English, 日本語)
+
+### Version 2.0.0 (Q2 2026)
+- [ ] 📊 Advanced analytics dashboard
+- [ ] 🎨 Theme customization
+- [ ] 🔐 iCloud sync
+- [ ] 📱 Widget support (iOS 14+)
+- [ ] ⌚ Apple Watch companion app
+
+[查看完整路线图](https://github.com/OrbitRate/OrbitRate-Native/projects)
+
 ## 🤝 贡献
 
-欢迎提交 Issue 和 Pull Request！
+我们欢迎所有形式的贡献！无论是报告 bug、提出新功能建议，还是提交代码，都请查看我们的[贡献指南](CONTRIBUTING.md)。
+
+### 如何贡献
+
+1. 🍴 Fork 本仓库
+2. 🌱 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
+3. ✅ 提交你的更改 (`git commit -m 'feat: add some AmazingFeature'`)
+4. 📤 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 🎉 开启一个 Pull Request
+
+### 贡献者
+
+感谢所有为这个项目做出贡献的开发者！
+
+<a href="https://github.com/OrbitRate/OrbitRate-Native/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=OrbitRate/OrbitRate-Native" />
+</a>
+
+## 📞 联系方式
+
+- **Issues**: [GitHub Issues](https://github.com/OrbitRate/OrbitRate-Native/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/OrbitRate/OrbitRate-Native/discussions)
+- **Email**: [Insert contact email]
+- **Twitter**: [@OrbitRate](https://twitter.com/OrbitRate)
+
+## 🙏 致谢
+
+- [NativeScript](https://nativescript.org/) - 强大的移动应用框架
+- [Vue.js](https://vuejs.org/) - 渐进式 JavaScript 框架
+- [Font Awesome](https://fontawesome.com/) - 图标库
+- [ExchangeRate-API](https://www.exchangerate-api.com/) - 汇率数据源
+- 所有的贡献者和支持者
 
 ## 📄 许可
 
-MIT License
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+
+## ⭐ Star History
+
+如果这个项目对你有帮助，请给我们一个 star！⭐
+
+[![Star History Chart](https://api.star-history.com/svg?repos=OrbitRate/OrbitRate-Native&type=Date)](https://star-history.com/#OrbitRate/OrbitRate-Native&Date)
 
 ---
 
-**Version**: 1.0.0  
-**Last Updated**: 2025-10-13
+<div align="center">
+
+**Made with ❤️ by OrbitRate Team**
+
+**Version**: 1.0.0 | **Last Updated**: 2025-10-13
+
+[⬆ Back to Top](#orbitrate-native)
+
+</div>
 

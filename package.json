@@ -2,10 +2,34 @@
   "name": "orbitrate-native",
   "main": "app/app.ts",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Elegant currency exchange rate converter - NativeScript Vue Edition",
+  "keywords": [
+    "nativescript",
+    "vue",
+    "currency",
+    "converter",
+    "exchange-rate",
+    "ios",
+    "mobile",
+    "finance",
+    "money",
+    "forex"
+  ],
   "author": "OrbitRate Team",
   "license": "MIT",
+  "homepage": "https://github.com/OrbitRate/OrbitRate-Native#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrbitRate/OrbitRate-Native.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OrbitRate/OrbitRate-Native/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/OrbitRate"
+  },
   "scripts": {
     "ios": "ns run ios",
     "android": "ns run android",
