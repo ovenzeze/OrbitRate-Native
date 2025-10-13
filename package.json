@@ -1,18 +1,34 @@
 {
-  "name": "OrbitRate-Native",
+  "name": "orbitrate-native",
   "main": "app/app.ts",
   "version": "1.0.0",
   "private": true,
+  "description": "Elegant currency exchange rate converter - NativeScript Vue Edition",
+  "author": "OrbitRate Team",
+  "license": "MIT",
+  "scripts": {
+    "ios": "ns run ios",
+    "android": "ns run android",
+    "debug:ios": "ns debug ios --chrome",
+    "debug:android": "ns debug android --chrome",
+    "clean": "ns clean",
+    "build:ios": "ns build ios --for-device --release",
+    "build:android": "ns build android --release"
+  },
   "dependencies": {
     "@nativescript/core": "~8.9.0",
     "@nativescript/theme": "^3.1.0",
-    "nativescript-vue": "~2.9.3"
+    "nativescript-vue": "~2.9.3",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@nativescript/ios": "8.9.4",
+    "@nativescript/preview-cli": "1.0.14",
     "@nativescript/types": "~8.9.0",
     "@nativescript/webpack": "~5.0.0",
-    "@types/node": "~17.0.21",
+    "@types/node": "17.0.45",
     "nativescript-vue-template-compiler": "~2.9.3",
+    "readable-stream": "^4.7.0",
     "typescript": "~5.4.0",
     "vue": "~2.6.12"
   }

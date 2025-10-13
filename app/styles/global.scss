@@ -1,0 +1,251 @@
+// OrbitRate 全局样式
+@import './variables';
+
+// ==================== FontAwesome 字体配置 ====================
+.fas {
+  font-family: 'Font Awesome 6 Free', 'fa-solid-900';
+  font-weight: 900;
+}
+
+.far {
+  font-family: 'Font Awesome 6 Free', 'fa-regular-400';
+  font-weight: 400;
+}
+
+.fab {
+  font-family: 'Font Awesome 6 Brands', 'fa-brands-400';
+  font-weight: 400;
+}
+
+// ==================== 全局页面样式 ====================
+Page {
+  background-color: $bg-primary;
+  color: $text-primary;
+}
+// ==================== 滚动条隐藏 ====================
+// 滚动条通过 scrollBarIndicatorVisible="false" 属性隐藏
+
+// ==================== 动画定义 ====================
+// 淡入动画
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// 从下方滑入
+@keyframes slideInUp {
+  from {
+    transform: translateY(100);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// 从上方滑入
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// 缩放进入
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// 脉冲动画
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// 旋转动画
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360);
+  }
+}
+
+// 动画工具类
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.slide-in-up {
+  animation-name: slideInUp;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
+}
+
+.slide-in-down {
+  animation-name: slideInDown;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
+}
+
+.scale-in {
+  animation-name: scaleIn;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-fill-mode: forwards;
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.rotate {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+// ==================== ActionBar 样式 ====================
+ActionBar {
+  background-color: $bg-primary;
+  color: $text-primary;
+  flat: true;
+}
+
+ActionBar Label {
+  color: $text-primary;
+  font-size: $font-size-body;
+  font-weight: $font-weight-semibold;
+}
+
+// ==================== 通用文字样式 ====================
+.text-primary {
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-tertiary {
+  color: $text-tertiary;
+}
+
+.text-muted {
+  color: $text-muted;
+}
+
+.text-accent {
+  color: $color-accent;
+}
+
+// ==================== 通用背景样式 ====================
+.bg-primary {
+  background-color: $bg-primary;
+}
+
+.bg-secondary {
+  background-color: $bg-secondary;
+}
+
+.bg-tertiary {
+  background-color: $bg-tertiary;
+}
+
+// ==================== 通用标题样式 ====================
+.title-main {
+  font-size: $font-size-title-main;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+}
+
+.title-page {
+  font-size: $font-size-title-page;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+}
+
+.title-section {
+  font-size: $font-size-title-section;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+}
+
+// ==================== 通用卡片样式 ====================
+.card {
+  background-color: $bg-secondary;
+  border-radius: $radius-card;
+  padding: 20;
+}
+
+.card-small {
+  background-color: $bg-secondary;
+  border-radius: $radius-small;
+  padding: 16;
+}
+
+// ==================== 通用按钮样式 ====================
+.btn-primary {
+  background-color: $color-accent;
+  color: $text-primary;
+  border-radius: $radius-button;
+  font-weight: $font-weight-semibold;
+}
+
+.btn-secondary {
+  background-color: $bg-tertiary;
+  color: $text-primary;
+  border-radius: $radius-button;
+  font-weight: $font-weight-semibold;
+}
+
+// ==================== 分隔线 ====================
+.divider {
+  height: 1;
+  background-color: $color-border;
+}
+
+// ==================== 间距工具类 ====================
+.m-0 { margin: 0; }
+.m-4 { margin: 4; }
+.m-8 { margin: 8; }
+.m-12 { margin: 12; }
+.m-16 { margin: 16; }
+.m-24 { margin: 24; }
+
+.p-0 { padding: 0; }
+.p-4 { padding: 4; }
+.p-8 { padding: 8; }
+.p-12 { padding: 12; }
+.p-16 { padding: 16; }
+.p-20 { padding: 20; }
+.p-24 { padding: 24; }
+

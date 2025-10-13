@@ -1,0 +1,67 @@
+// OrbitRate 全局样式变量
+
+// ==================== 深色主题颜色 ====================
+// 背景色
+$bg-primary: #13151f;
+$bg-secondary: #1a1d29;
+$bg-tertiary: #27293a;
+
+// 文字色
+$text-primary: #ffffff;
+$text-secondary: #a1a1aa;
+$text-tertiary: #71717a;
+$text-muted: #52525b;
+
+// 功能色
+$color-accent: #6366f1;      // 主色（蓝紫色）
+$color-success: #10b981;     // 成功色（绿色）
+$color-error: #ef4444;       // 错误色/爱心（红色）
+$color-border: #27272a;      // 边框色
+
+// ==================== 字号层级 ====================
+$font-size-title-main: 32;      // 主标题
+$font-size-title-page: 28;      // 页面标题
+$font-size-title-section: 18;   // 三级标题
+$font-size-number-large: 48;    // 大号数字
+$font-size-number-medium: 40;   // 中号数字
+$font-size-body: 15;            // 标准文字
+$font-size-label: 14;           // 小标签
+$font-size-caption: 11;         // 辅助文字
+
+// ==================== 字重 ====================
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// ==================== 字体族 ====================
+// 系统默认字体（iOS: San Francisco, Android: Roboto）
+$font-family-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// 等宽字体（用于数字显示）
+// iOS: Menlo, SF Mono
+// Android: Droid Sans Mono, Roboto Mono
+$font-family-mono: 'Menlo', 'Monaco', 'SF Mono', 'Droid Sans Mono', 'Roboto Mono', 'Courier New', monospace;
+
+// ==================== 间距系统 ====================
+$spacing-page: 24;        // 页面边距
+$spacing-section: 24;     // 标题与内容
+$spacing-card: 12;        // 卡片间距
+$spacing-small: 8;        // 小元素间距
+$spacing-tiny: 4;         // 最小间距
+
+// ==================== 圆角规范 ====================
+$radius-card: 16;         // 卡片圆角
+$radius-button: 32;       // 按钮圆角（完全圆润）
+$radius-small: 12;        // 小圆角
+
+// ==================== 图标尺寸 ====================
+$icon-flag-large: 44;     // 国旗图标（Picker）
+$icon-flag-medium: 32;    // 国旗图标（History）
+$icon-flag-small: 28;     // 国旗图标（一般）
+$icon-flag-tiny: 24;      // 国旗图标（小）
+$icon-function: 20;       // 功能图标
+
+// ==================== 动画 ====================
+$animation-duration: 0.2; // 过渡动画时长（秒）
+$animation-refresh: 0.8;  // 刷新动画时长（秒）
+
