@@ -75,22 +75,37 @@ ns clean
 
 **注意**: 当前版本仅支持 iOS 平台。
 
-### 清理项目
-
-```bash
-ns clean
-```
-
 ## 📚 文档
 
-详细的开发文档位于 `docs/` 目录：
+### 📖 核心文档
 
-- **[产品设计文档](./docs/PRODUCT_SPEC.md)** - 完整的功能和设计规范
-- **[NativeScript-Vue 指南](./docs/nativescript-vue/README.md)** - 开发教程和最佳实践
-  - [快速开始](./docs/nativescript-vue/GETTING_STARTED.md)
-  - [关键差异与注意事项](./docs/nativescript-vue/KEY_DIFFERENCES.md) ⭐ 必读
-  - [最佳实践](./docs/nativescript-vue/BEST_PRACTICES.md)
-  - [高级主题](./docs/nativescript-vue/ADVANCED_TOPICS.md)
+- **[CHANGELOG.md](CHANGELOG.md)** - 版本变更历史，记录每个版本的功能更新和修复
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - 贡献指南，包含开发规范、提交格式和代码审查流程
+- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** - 社区行为准则，维护友好的协作环境
+- **[SECURITY.md](SECURITY.md)** - 安全策略，漏洞报告流程和安全最佳实践
+
+### 🛠️ 开发指南
+
+- **[DEVELOPER_QUICK_START.md](DEVELOPER_QUICK_START.md)** - 开发者快速开始指南，包含项目结构、状态管理和服务层使用
+- **[INSTALL_ON_DEVICE.md](INSTALL_ON_DEVICE.md)** - 设备安装指南，提供三种在开发设备上安装应用的方法
+- **[QUICK_BUILD_GUIDE.md](QUICK_BUILD_GUIDE.md)** - iOS快速构建指南，详细的Xcode构建和上传流程
+
+### 📋 项目规划
+
+- **[docs/optimization-group-1-architecture.md](docs/optimization-group-1-architecture.md)** - 第一组优化任务：基础架构升级，包含状态管理现代化、服务层架构重构等
+- **[docs/optimization-group-2-ux.md](docs/optimization-group-2-ux.md)** - 第二组优化任务：用户体验增强，包含图标系统升级、国际化实现等
+- **[docs/optimization-group-3-quality.md](docs/optimization-group-3-quality.md)** - 第三组优化任务：质量与性能保障，包含测试框架搭建、代码质量工具链等
+
+### 📁 历史文档
+
+归档的历史文档位于 [`docs/archive/`](docs/archive/) 目录，包含项目开发过程中的阶段性报告和问题解决方案。
+
+### 🤝 GitHub 模板
+
+- **[.github/PROJECT_INFO.md](.github/PROJECT_INFO.md)** - 项目信息文档，包含项目元数据、团队信息、发布周期等详细信息
+- **[.github/ISSUE_TEMPLATE/bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md)** - Bug报告模板，帮助用户提交详细的错误报告
+- **[.github/ISSUE_TEMPLATE/feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md)** - 功能请求模板，帮助用户提交结构化的功能建议
+- **[.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md)** - Pull Request模板，指导贡献者提交规范的代码变更
 
 ## 📦 项目结构
 
@@ -301,4 +316,3 @@ ns build ios --for-device --release
 [⬆ Back to Top](#orbitrate-native)
 
 </div>
-

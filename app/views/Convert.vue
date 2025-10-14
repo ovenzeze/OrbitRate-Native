@@ -128,6 +128,9 @@
 <script lang="ts">
 import Vue from 'nativescript-vue';
 import { CoreTypes } from '@nativescript/core';
+import { mapState, mapActions, mapWritableState } from 'pinia';
+import { useCurrencyStore } from '~/stores/currency';
+import { useHistoryStore } from '~/stores/history';
 import CountryFlag from '../components/CountryFlag.vue';
 import Icon from '../components/Icon.vue';
 
@@ -139,12 +142,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      amount: '88',
-      fromCurrency: 'USD',
-      toCurrency: 'CNY',
-      rate: 7.2456,
-      lastUpdated: new Date(),
-      isRefreshing: false,
       // 快捷货币对 - 常用的货币转换组合
       quickPairs: [
         { from: 'USD', to: 'CNY' },  // 美元 → 人民币
@@ -172,17 +169,34 @@ export default Vue.extend({
     };
   },
   computed: {
+    ...mapState(useCurrencyStore, [
+      'fromCurrency',
+      'toCurrency',
+      'currentRate',
+      'lastUpdated',
+      'rateText'
+    ]),
+    ...mapWritableState(useCurrencyStore, ['amount']),
+
     convertedAmount(): string {
-      const amt = parseFloat(this.amount || '0');
-      const result = amt * this.rate;
-      return result.toFixed(2);
+      const store = useCurrencyStore();
+      return store.convertedAmount.toFixed(2);
     },
-    rateText(): string {
-      return `1 ${this.fromCurrency} = ${this.rate.toFixed(4)} ${this.toCurrency}`;
+
+    isRefreshing(): boolean {
+      return useCurrencyStore().isLoading;
     },
+
+    rate(): number {
+      return useCurrencyStore().currentRate || 0;
+    },
+
     updateTimeText(): string {
+      const lastUpdated = useCurrencyStore().lastUpdated;
+      if (!lastUpdated) return 'Not updated yet';
+
       const now = new Date();
-      const diff = Math.floor((now.getTime() - this.lastUpdated.getTime()) / 1000 / 60);
+      const diff = Math.floor((now.getTime() - lastUpdated.getTime()) / 1000 / 60);
       if (diff < 1) return 'Updated just now';
       if (diff < 60) return `Updated ${diff}m ago`;
       const hours = Math.floor(diff / 60);
@@ -191,27 +205,44 @@ export default Vue.extend({
     }
   },
   methods: {
-    swapCurrencies() {
-      const temp = this.fromCurrency;
-      this.fromCurrency = this.toCurrency;
-      this.toCurrency = temp;
-      this.rate = 1 / this.rate;
-    },
-    refreshRates() {
+    ...mapActions(useCurrencyStore, {
+      fetchRates: 'fetchRates',
+      swapCurrencies: 'swapCurrencies',
+      setFromCurrency: 'setFromCurrency',
+      setToCurrency: 'setToCurrency'
+    }),
+
+    async refreshRates() {
       console.log('Refreshing rates...');
-      this.isRefreshing = true;
-      
-      // 模拟API调用
-      setTimeout(() => {
-        this.lastUpdated = new Date();
-        this.isRefreshing = false;
-        // TODO: 实际的汇率刷新逻辑
-      }, 1000);
+      await this.fetchRates();
     },
-    loadQuickPair(from: string, to: string) {
-      this.fromCurrency = from;
-      this.toCurrency = to;
+
+    async loadQuickPair(from: string, to: string) {
       console.log(`Loading pair: ${from} → ${to}`);
+      this.setFromCurrency(from);
+      this.setToCurrency(to);
+    },
+
+    async saveConversion() {
+      const currencyStore = useCurrencyStore();
+      const historyStore = useHistoryStore();
+
+      if (currencyStore.currentRate) {
+        await historyStore.addRecord({
+          from_currency: currencyStore.fromCurrency,
+          to_currency: currencyStore.toCurrency,
+          amount: currencyStore.amount,
+          result: currencyStore.convertedAmount,
+          rate: currencyStore.currentRate
+        });
+      }
+    }
+  },
+  mounted() {
+    // Fetch initial rates when component is mounted
+    const store = useCurrencyStore();
+    if (!store.lastUpdated || store.isRateStale) {
+      this.fetchRates();
     }
   }
 });

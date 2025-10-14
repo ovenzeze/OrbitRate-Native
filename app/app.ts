@@ -1,5 +1,6 @@
 import Vue from 'nativescript-vue'
 import { TouchManager, CoreTypes } from '@nativescript/core'
+import { pinia } from './stores'
 import BottomNavigation from './components/layout/BottomNavigation.vue'
 
 declare let __DEV__: boolean;
@@ -23,5 +24,6 @@ TouchManager.animations = {
 }
 
 new Vue({
+  pinia,
   render: (h) => h(BottomNavigation),
 }).$start()
