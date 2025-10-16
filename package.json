@@ -43,11 +43,10 @@
     "@nativescript/core": "~8.9.0",
     "@nativescript/theme": "^3.1.0",
     "@tailwindcss/postcss": "^4.1.14",
-    "nativescript-vue": "~2.9.3",
-    "vuex": "^3.6.2"
+    "nativescript-vue": "~2.9.3"
   },
   "devDependencies": {
-    "@nativescript/ios": "8.9.4",
+    "@nativescript/ios": "~8.9.0",
     "@nativescript/preview-cli": "1.0.14",
     "@nativescript/types": "~8.9.0",
     "@nativescript/webpack": "~5.0.0",
