@@ -9,14 +9,13 @@
 <script lang="ts">
 import Vue from 'nativescript-vue';
 
-// 图标映射 - 混合使用 emoji 和 Font Awesome
-// 底部导航使用 emoji，其他使用 Font Awesome
+// 图标映射 - 统一使用 Font Awesome
 const iconMap: Record<string, string> = {
-  // 底部导航 - 使用 emoji 确保显示
-  'convert': '$',             // 美元符号
-  'history': '📋',            // 剪贴板 emoji
-  'favorites': '⭐',          // 星星 emoji
-  'settings': '⚙️',           // 齿轮 emoji
+  // 底部导航 - 使用 Font Awesome
+  'convert': '\uf155',        // dollar-sign (Convert)
+  'history': '\uf1c0',        // history (History)
+  'favorites': '\uf005',      // star (Favorites)
+  'settings': '\uf013',       // cog (Settings)
   
   // Settings 页面 - 使用 Font Awesome
   'moon': '\uf186',           // moon (Dark mode)
@@ -68,9 +67,8 @@ export default Vue.extend({
       return `font-size: ${this.size}; color: ${this.color};`;
     },
     iconClass(): string {
-      // 底部导航图标使用 emoji，不需要 Font Awesome 类
-      const emojiIcons = ['convert', 'history', 'favorites', 'settings'];
-      return emojiIcons.includes(this.name) ? 'icon' : 'icon fas';
+      // 所有图标都使用 Font Awesome
+      return 'icon fas';
     }
   }
 });

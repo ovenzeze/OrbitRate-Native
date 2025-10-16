@@ -42,7 +42,6 @@
   "dependencies": {
     "@nativescript/core": "~8.9.0",
     "@nativescript/theme": "^3.1.0",
-    "@tailwindcss/postcss": "^4.1.14",
     "nativescript-vue": "~2.9.3"
   },
   "devDependencies": {
