@@ -85,12 +85,19 @@ ns clean
 
 详细的开发文档位于 `docs/` 目录：
 
-- **[产品设计文档](./docs/PRODUCT_SPEC.md)** - 完整的功能和设计规范
-- **[NativeScript-Vue 指南](./docs/nativescript-vue/README.md)** - 开发教程和最佳实践
-  - [快速开始](./docs/nativescript-vue/GETTING_STARTED.md)
-  - [关键差异与注意事项](./docs/nativescript-vue/KEY_DIFFERENCES.md) ⭐ 必读
-  - [最佳实践](./docs/nativescript-vue/BEST_PRACTICES.md)
-  - [高级主题](./docs/nativescript-vue/ADVANCED_TOPICS.md)
+### 核心文档
+- **[项目状态报告](./PROJECT_STATUS.md)** - 当前项目状态和发布就绪情况
+- **[iOS 发布检查清单](./docs/IOS_RELEASE_CHECKLIST.md)** - 完整的 App Store 发布流程
+
+### 构建和发布
+- **[构建文档索引](./docs/build/README.md)** - 所有构建相关文档
+  - [快速构建指南](./docs/build/QUICK_BUILD_GUIDE.md) - 15分钟完成构建
+  - [设备安装指南](./docs/build/INSTALL_ON_DEVICE.md) - 在真机上测试
+  - [构建问题解决](./docs/build/BUILD_ISSUE_AND_SOLUTION.md) - 常见问题排查
+
+### 开发指南
+- **[设置页面改进](./docs/SETTINGS_PAGE_IMPROVEMENTS.md)** - 设置页面详细设计
+- **[设置详情改进](./docs/SETTINGS_DETAIL_IMPROVEMENTS.md)** - 设置功能详细说明
 
 ## 📦 项目结构
 
