@@ -1,4 +1,4 @@
-import { ApplicationSettings } from '@nativescript/core'
+import { NativeScriptService } from '~/services/core/nativescript.service'
 import { logger } from '~/services/core/logger.service'
 
 export interface CurrencyPair {
@@ -18,7 +18,7 @@ const FAVORITES_KEY = 'favorites'
 export class FavoritesStorage {
   async getAll(): Promise<FavoriteItem[]> {
     try {
-      const data = ApplicationSettings.getString(FAVORITES_KEY)
+      const data = NativeScriptService.getString(FAVORITES_KEY)
       if (!data) {
         return []
       }
@@ -39,7 +39,7 @@ export class FavoritesStorage {
       const items = await this.getAll()
       items.unshift(item)
 
-      ApplicationSettings.setString(FAVORITES_KEY, JSON.stringify(items))
+      NativeScriptService.setString(FAVORITES_KEY, JSON.stringify(items))
       logger.info('Saved favorite item', 'FavoritesStorage')
     } catch (error) {
       logger.error('Failed to save favorite', 'FavoritesStorage', error)
@@ -51,7 +51,7 @@ export class FavoritesStorage {
     try {
       const items = await this.getAll()
       const filtered = items.filter(item => item.id !== id)
-      ApplicationSettings.setString(FAVORITES_KEY, JSON.stringify(filtered))
+      NativeScriptService.setString(FAVORITES_KEY, JSON.stringify(filtered))
       logger.info(`Removed favorite ${id}`, 'FavoritesStorage')
     } catch (error) {
       logger.error('Failed to remove favorite', 'FavoritesStorage', error)
@@ -61,7 +61,7 @@ export class FavoritesStorage {
 
   async clear(): Promise<void> {
     try {
-      ApplicationSettings.remove(FAVORITES_KEY)
+      NativeScriptService.remove(FAVORITES_KEY)
       logger.info('Cleared all favorites', 'FavoritesStorage')
     } catch (error) {
       logger.error('Failed to clear favorites', 'FavoritesStorage', error)

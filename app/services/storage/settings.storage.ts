@@ -1,4 +1,4 @@
-import { ApplicationSettings } from '@nativescript/core'
+import { NativeScriptService } from '~/services/core/nativescript.service'
 import { logger } from '~/services/core/logger.service'
 
 export interface AppSettings {
@@ -23,7 +23,7 @@ const DEFAULT_SETTINGS: AppSettings = {
 
 export class SettingsStorage {
   load(): AppSettings {
-    const saved = ApplicationSettings.getString(SETTINGS_KEY)
+    const saved = NativeScriptService.getString(SETTINGS_KEY)
     if (saved) {
       try {
         const parsed = JSON.parse(saved)
@@ -38,7 +38,7 @@ export class SettingsStorage {
 
   save(settings: AppSettings): void {
     try {
-      ApplicationSettings.setString(SETTINGS_KEY, JSON.stringify(settings))
+      NativeScriptService.setString(SETTINGS_KEY, JSON.stringify(settings))
       logger.info('Saved settings', 'SettingsStorage')
     } catch (error) {
       logger.error('Failed to save settings', 'SettingsStorage', error)
@@ -48,7 +48,7 @@ export class SettingsStorage {
 
   reset(): AppSettings {
     try {
-      ApplicationSettings.remove(SETTINGS_KEY)
+      NativeScriptService.remove(SETTINGS_KEY)
       logger.info('Reset settings to defaults', 'SettingsStorage')
       return DEFAULT_SETTINGS
     } catch (error) {

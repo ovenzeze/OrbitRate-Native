@@ -111,8 +111,7 @@
 
 <script lang="ts">
 import Vue from 'nativescript-vue';
-import { ApplicationSettings } from '@nativescript/core';
-import { alert } from '@nativescript/core/ui/dialogs';
+import { NativeScriptService } from '~/services/core/nativescript.service';
 
 const THEME_KEY = 'app_theme';
 const LAST_UPDATE_KEY = 'data_last_update';
@@ -128,11 +127,11 @@ export default Vue.extend({
   },
   mounted() {
     // Load theme preference
-    const savedTheme = ApplicationSettings.getString(THEME_KEY, 'dark');
+    const savedTheme = NativeScriptService.getString(THEME_KEY, 'dark');
     this.isDarkMode = savedTheme === 'dark';
     
     // Load last update time
-    const savedUpdateTime = ApplicationSettings.getString(LAST_UPDATE_KEY, '5 minutes ago');
+    const savedUpdateTime = NativeScriptService.getString(LAST_UPDATE_KEY, '5 minutes ago');
     this.lastUpdateTime = savedUpdateTime;
     
     // 标记为已初始化，防止 Switch 组件触发弹窗
@@ -154,7 +153,7 @@ export default Vue.extend({
     },
     saveThemePreference() {
       const theme = this.isDarkMode ? 'dark' : 'light';
-      ApplicationSettings.setString(THEME_KEY, theme);
+      NativeScriptService.setString(THEME_KEY, theme);
       console.log('[Settings] Theme changed to:', theme);
       
       // TODO: Apply theme to entire app
@@ -162,7 +161,7 @@ export default Vue.extend({
     },
     onGettingStarted() {
       console.log('[Settings] Getting Started tapped');
-      alert({
+      NativeScriptService.showAlert({
         title: 'Getting Started',
         message: 'Welcome to OrbitRate! Convert currencies with real-time exchange rates.',
         okButtonText: 'Got it'
@@ -170,7 +169,7 @@ export default Vue.extend({
     },
     onRestorePurchases() {
       console.log('[Settings] Restore Purchases tapped');
-      alert({
+      NativeScriptService.showAlert({
         title: 'Restore Purchases',
         message: 'No purchases to restore.',
         okButtonText: 'OK'
@@ -178,7 +177,7 @@ export default Vue.extend({
     },
     onAboutApp() {
       console.log('[Settings] About App tapped');
-      alert({
+      NativeScriptService.showAlert({
         title: 'About OrbitRate',
         message: 'OrbitRate is a modern currency converter app with support for 150+ currencies.\n\nVersion: 1.0.0',
         okButtonText: 'OK'
@@ -186,7 +185,7 @@ export default Vue.extend({
     },
     onTermsOfService() {
       console.log('[Settings] Terms of Service tapped');
-      alert({
+      NativeScriptService.showAlert({
         title: 'Terms of Service',
         message: 'Terms of Service will be displayed here.',
         okButtonText: 'OK'
@@ -194,7 +193,7 @@ export default Vue.extend({
     },
     onPrivacyPolicy() {
       console.log('[Settings] Privacy Policy tapped');
-      alert({
+      NativeScriptService.showAlert({
         title: 'Privacy Policy',
         message: 'Privacy Policy will be displayed here.',
         okButtonText: 'OK'

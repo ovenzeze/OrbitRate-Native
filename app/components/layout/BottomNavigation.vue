@@ -70,7 +70,7 @@
 
 <script lang="ts">
 import Vue from 'nativescript-vue';
-import { ApplicationSettings } from '@nativescript/core';
+import { NativeScriptService } from '~/services/core/nativescript.service';
 import Convert from '../../views/Convert.vue';
 import History from '../../views/History.vue';
 import Favorites from '../../views/Favorites.vue';
@@ -90,7 +90,7 @@ export default Vue.extend({
   },
   data() {
     // 恢复上次的标签页
-    const lastTab = ApplicationSettings.getString(LAST_TAB_KEY, 'convert') as 'convert' | 'history' | 'favorites' | 'settings';
+    const lastTab = NativeScriptService.getString(LAST_TAB_KEY, 'convert') as 'convert' | 'history' | 'favorites' | 'settings';
     
     return {
       activeTab: lastTab
@@ -125,7 +125,7 @@ export default Vue.extend({
       this.activeTab = tab;
       
       // 保存当前标签页状态
-      ApplicationSettings.setString(LAST_TAB_KEY, tab);
+      NativeScriptService.setString(LAST_TAB_KEY, tab);
       
       console.log(`[Navigation] Switched to ${tab} tab`);
     },

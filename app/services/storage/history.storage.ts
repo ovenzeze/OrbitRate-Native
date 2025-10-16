@@ -1,4 +1,4 @@
-import { ApplicationSettings } from '@nativescript/core'
+import { NativeScriptService } from '~/services/core/nativescript.service'
 import { logger } from '~/services/core/logger.service'
 
 export interface ConversionRecord {
@@ -17,7 +17,7 @@ const MAX_RECORDS = 100
 export class HistoryStorage {
   async getAll(): Promise<ConversionRecord[]> {
     try {
-      const data = ApplicationSettings.getString(HISTORY_KEY)
+      const data = NativeScriptService.getString(HISTORY_KEY)
       if (!data) {
         return []
       }
@@ -43,7 +43,7 @@ export class HistoryStorage {
         records.splice(MAX_RECORDS)
       }
 
-      ApplicationSettings.setString(HISTORY_KEY, JSON.stringify(records))
+      NativeScriptService.setString(HISTORY_KEY, JSON.stringify(records))
       logger.info('Saved conversion record', 'HistoryStorage')
     } catch (error) {
       logger.error('Failed to save history record', 'HistoryStorage', error)
@@ -55,7 +55,7 @@ export class HistoryStorage {
     try {
       const records = await this.getAll()
       const filtered = records.filter(r => r.id !== id)
-      ApplicationSettings.setString(HISTORY_KEY, JSON.stringify(filtered))
+      NativeScriptService.setString(HISTORY_KEY, JSON.stringify(filtered))
       logger.info(`Removed record ${id}`, 'HistoryStorage')
     } catch (error) {
       logger.error('Failed to remove history record', 'HistoryStorage', error)
@@ -65,7 +65,7 @@ export class HistoryStorage {
 
   async clear(): Promise<void> {
     try {
-      ApplicationSettings.remove(HISTORY_KEY)
+      NativeScriptService.remove(HISTORY_KEY)
       logger.info('Cleared all history', 'HistoryStorage')
     } catch (error) {
       logger.error('Failed to clear history', 'HistoryStorage', error)
