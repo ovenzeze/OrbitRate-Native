@@ -18,7 +18,7 @@ export const useHistoryStore = defineStore('history', {
     recordsByDate(state) {
       const grouped: Record<string, ConversionRecord[]> = {}
 
-      state.records.forEach(record => {
+      state.records.forEach((record: ConversionRecord) => {
         const date = new Date(record.created_at).toLocaleDateString()
         if (!grouped[date]) {
           grouped[date] = []
@@ -61,7 +61,7 @@ export const useHistoryStore = defineStore('history', {
     },
 
     async removeRecord(id: string) {
-      const index = this.records.findIndex(r => r.id === id)
+      const index = this.records.findIndex((r: ConversionRecord) => r.id === id)
       if (index !== -1) {
         this.records.splice(index, 1)
 

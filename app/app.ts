@@ -1,7 +1,11 @@
 import Vue from 'nativescript-vue'
+import VueCompositionAPI from '@vue/composition-api'
 import { NativeScriptService } from './services/core/nativescript.service'
 import { pinia } from './stores'
 import BottomNavigation from './components/layout/BottomNavigation.vue'
+
+// 注册 Composition API
+Vue.use(VueCompositionAPI)
 
 declare let __DEV__: boolean;
 

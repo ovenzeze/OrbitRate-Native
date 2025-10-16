@@ -79,8 +79,7 @@ export class NativeScriptService {
 
   // ==================== HTTP 请求 ====================
   static async httpRequest(options: any): Promise<HttpResponse> {
-    const http = new Http();
-    return await http.request(options);
+    return await Http.request(options);
   }
 
   // ==================== 对话框 ====================
@@ -92,7 +91,7 @@ export class NativeScriptService {
     return await confirm(options);
   }
 
-  static async showPrompt(options: PromptOptions): Promise<string> {
+  static async showPrompt(options: PromptOptions): Promise<{ text: string; result: boolean }> {
     return await prompt(options);
   }
 

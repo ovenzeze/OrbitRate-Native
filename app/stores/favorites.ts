@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { FavoritesStorage, FavoriteItem, CurrencyPair } from '~/services/storage/favorites.storage'
+import { FavoritesStorage } from '~/services/storage/favorites.storage'
+import { FavoriteItem, CurrencyPair } from '~/types'
 import { FavoritesState } from '~/types'
 
 export const useFavoritesStore = defineStore('favorites', {
@@ -11,7 +12,7 @@ export const useFavoritesStore = defineStore('favorites', {
   getters: {
     hasFavorite(state) {
       return (from: string, to: string): boolean => {
-        return state.items.some(item =>
+      return state.items.some((item: FavoriteItem) => 
           item.type === 'pair' &&
           (item.data as CurrencyPair).from_currency === from &&
           (item.data as CurrencyPair).to_currency === to
@@ -59,7 +60,7 @@ export const useFavoritesStore = defineStore('favorites', {
     },
 
     async removeFavorite(id: string) {
-      const index = this.items.findIndex(item => item.id === id)
+      const index = this.items.findIndex((item: FavoriteItem) => item.id === id)
       if (index !== -1) {
         this.items.splice(index, 1)
 
@@ -69,7 +70,7 @@ export const useFavoritesStore = defineStore('favorites', {
     },
 
     async toggleFavorite(from: string, to: string) {
-      const existing = this.items.find(item =>
+      const existing = this.items.find((item: FavoriteItem) =>
         item.type === 'pair' &&
         (item.data as CurrencyPair).from_currency === from &&
         (item.data as CurrencyPair).to_currency === to

@@ -1,5 +1,6 @@
 import { NativeScriptService } from '~/services/core/nativescript.service'
 import { logger } from '~/services/core/logger.service'
+import { ConversionRecord } from '~/types'
 
 export interface CurrencyPair {
   from_currency: string
@@ -8,8 +9,8 @@ export interface CurrencyPair {
 
 export interface FavoriteItem {
   id: string
-  type: 'pair'
-  data: CurrencyPair
+  type: 'pair' | 'conversion'
+  data: CurrencyPair | ConversionRecord
   created_at: Date
 }
 
