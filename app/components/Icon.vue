@@ -9,36 +9,36 @@
 <script lang="ts">
 import Vue from 'nativescript-vue';
 
-// 系统图标映射 (测试用)
-// 使用系统支持的 Unicode 字符
+// Font Awesome 图标映射
+// 统一使用 Font Awesome 图标，确保一致性
 const iconMap: Record<string, string> = {
-  // 底部导航 - 使用系统图标
-  'convert': '$',             // 美元符号
-  'history': '📋',            // 剪贴板 emoji
-  'favorites': '⭐',          // 星星 emoji
-  'settings': '⚙️',           // 齿轮 emoji
+  // 底部导航
+  'convert': '\uf155',        // dollar-sign (Convert)
+  'history': '\uf1da',        // clipboard-list (History)
+  'favorites': '\uf005',      // heart (Favorites)
+  'settings': '\uf013',       // cog (Settings)
   
   // Settings 页面
-  'moon': '\uf186',           // moon (Moon)
-  'database': '\uf1c0',       // database (Database)
-  'book': '\uf02d',           // book (BookOpen)
-  'refresh': '\uf021',        // sync (RotateCcw/RefreshCw)
-  'info': '\uf05a',           // info-circle (Info)
-  'file': '\uf15c',           // file-alt (FileText)
-  'shield': '\uf023',         // lock (Shield)
-  'chevron-right': '\uf054',  // chevron-right (ChevronRight)
+  'moon': '\uf186',           // moon (Dark mode)
+  'database': '\uf1c0',       // database (Data source)
+  'book': '\uf02d',           // book-open (Getting started)
+  'refresh': '\uf021',        // sync (Restore purchases)
+  'info': '\uf05a',           // info-circle (About)
+  'file': '\uf15c',           // file-alt (Terms)
+  'shield': '\uf023',         // shield (Privacy)
+  'chevron-right': '\uf054',  // chevron-right (Arrow)
   
   // History/Favorites 页面
-  'heart-filled': '\uf004',   // heart solid (Heart filled)
-  'trash': '\uf2ed',          // trash-alt (Trash2)
+  'heart-filled': '\uf004',   // heart solid (Favorite)
+  'trash': '\uf2ed',          // trash-alt (Delete)
   'search': '\uf002',         // search (Search)
-  'plus': '\uf067',           // plus (Plus)
-  'x': '\uf00d',              // times (X)
+  'plus': '\uf067',           // plus (Add)
+  'x': '\uf00d',              // times (Close)
   
-  // 其他
+  // 其他功能
   'bookmark': '\uf02e',       // bookmark (Bookmark)
-  'trending': '\uf201',       // chart-line (TrendingUp)
-  'swap': '\uf362',           // arrows-alt-v (swap vertical)
+  'trending': '\uf201',       // chart-line (Trending)
+  'swap': '\uf362',           // arrows-alt-v (Swap)
 };
 
 export default Vue.extend({
