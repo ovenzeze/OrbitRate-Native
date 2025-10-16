@@ -96,8 +96,8 @@ ns clean
   - [构建问题解决](./docs/build/BUILD_ISSUE_AND_SOLUTION.md) - 常见问题排查
 
 ### 开发指南
-- **[设置页面改进](./docs/SETTINGS_PAGE_IMPROVEMENTS.md)** - 设置页面详细设计
-- **[设置详情改进](./docs/SETTINGS_DETAIL_IMPROVEMENTS.md)** - 设置功能详细说明
+- **[设置页面优化完整指南](./docs/SETTINGS_OPTIMIZATION.md)** - 设置页面完整优化文档
+- **[Tailwind CSS 使用指南](./docs/TAILWIND_USAGE.md)** - ⚠️ 已过时，项目使用 SCSS
 
 ## 📦 项目结构
 

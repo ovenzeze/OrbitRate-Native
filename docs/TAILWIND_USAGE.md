@@ -1,3 +1,7 @@
+# ⚠️ Tailwind CSS 在 NativeScript 中的使用指南
+
+> **注意**: 此文档已过时。根据构建问题，Tailwind CSS 已被临时禁用。项目当前使用 SCSS 进行样式管理。
+
 # Tailwind CSS 在 NativeScript 中的使用指南
 
 ## 安装完成 ✅

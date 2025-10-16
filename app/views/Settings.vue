@@ -313,7 +313,7 @@ export default Vue.extend({
   font-weight: $font-weight-semibold;
   color: $text-primary;
   margin-bottom: 6;
-  letter-spacing: 2;
+  letter-spacing: 0.01;
   text-transform: uppercase;
 }
 
