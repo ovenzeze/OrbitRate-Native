@@ -1,7 +1,7 @@
 <template>
   <Label 
     :text="iconCode" 
-    class="fas icon"
+    class="icon"
     :style="iconStyle"
   />
 </template>
@@ -9,14 +9,14 @@
 <script lang="ts">
 import Vue from 'nativescript-vue';
 
-// FontAwesome 6 图标映射 (对应 Web 版的 Lucide 图标)
-// 使用 Unicode 字符而不是 HTML 实体
+// 系统图标映射 (测试用)
+// 使用系统支持的 Unicode 字符
 const iconMap: Record<string, string> = {
-  // 底部导航 - 更新为更贴切的图标
-  'convert': '\uf153',        // dollar-sign (美元符号 - 货币转换)
-  'history': '\uf1da',        // clipboard-list (剪贴板列表 - 历史记录)
-  'favorites': '\uf005',      // star (星星 - 收藏)
-  'settings': '\uf013',       // cog (齿轮 - 设置)
+  // 底部导航 - 使用系统图标
+  'convert': '$',             // 美元符号
+  'history': '📋',            // 剪贴板 emoji
+  'favorites': '⭐',          // 星星 emoji
+  'settings': '⚙️',           // 齿轮 emoji
   
   // Settings 页面
   'moon': '\uf186',           // moon (Moon)

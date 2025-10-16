@@ -2,25 +2,34 @@
 @import './variables';
 
 // ==================== FontAwesome 字体配置 ====================
+// 使用 FontAwesome 5 字体族名称 (兼容性更好)
+
 .fas {
-  font-family: 'Font Awesome 6 Free', 'fa-solid-900';
+  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
 
 .far {
-  font-family: 'Font Awesome 6 Free', 'fa-regular-400';
+  font-family: 'Font Awesome 5 Free';
   font-weight: 400;
 }
 
 .fab {
-  font-family: 'Font Awesome 6 Brands', 'fa-brands-400';
+  font-family: 'Font Awesome 5 Brands';
   font-weight: 400;
+}
+
+// 通用 FontAwesome 类
+.fa {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
 }
 
 // ==================== 全局页面样式 ====================
 Page {
   background-color: $bg-primary;
   color: $text-primary;
+  font-family: $font-family-system;
 }
 // ==================== 滚动条隐藏 ====================
 // 滚动条通过 scrollBarIndicatorVisible="false" 属性隐藏

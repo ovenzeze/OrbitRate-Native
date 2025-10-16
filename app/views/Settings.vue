@@ -122,7 +122,8 @@ export default Vue.extend({
   data() {
     return {
       isDarkMode: true, // Default to dark mode
-      lastUpdateTime: '5 minutes ago'
+      lastUpdateTime: '5 minutes ago',
+      isInitialized: false // 防止初始化时触发弹窗
     };
   },
   mounted() {
@@ -134,6 +135,9 @@ export default Vue.extend({
     const savedUpdateTime = ApplicationSettings.getString(LAST_UPDATE_KEY, '5 minutes ago');
     this.lastUpdateTime = savedUpdateTime;
     
+    // 标记为已初始化，防止 Switch 组件触发弹窗
+    this.isInitialized = true;
+    
     console.log('[Settings] Component mounted, theme:', savedTheme);
   },
   methods: {
@@ -143,7 +147,10 @@ export default Vue.extend({
     },
     onThemeChange(args: any) {
       this.isDarkMode = args.object.checked;
-      this.saveThemePreference();
+      // 只有在初始化完成后才保存主题设置
+      if (this.isInitialized) {
+        this.saveThemePreference();
+      }
     },
     saveThemePreference() {
       const theme = this.isDarkMode ? 'dark' : 'light';
@@ -151,11 +158,7 @@ export default Vue.extend({
       console.log('[Settings] Theme changed to:', theme);
       
       // TODO: Apply theme to entire app
-      alert({
-        title: 'Theme',
-        message: `Switched to ${theme} mode`,
-        okButtonText: 'OK'
-      });
+      // 移除弹窗提示，避免每次切换标签页都显示
     },
     onGettingStarted() {
       console.log('[Settings] Getting Started tapped');
@@ -214,7 +217,7 @@ export default Vue.extend({
   font-weight: $font-weight-semibold;
   color: #71717a;
   text-transform: uppercase;
-  letter-spacing: 0.5;
+  letter-spacing: 0.01;
   margin-bottom: 10;
   margin-top: 24;
   padding-left: 4;
@@ -249,8 +252,8 @@ export default Vue.extend({
 .icon-wrapper {
   width: 40;
   height: 40;
-  background-color: rgba(99, 102, 241, 0.15);
-  border-radius: 10;
+  background-color: rgba(99, 101, 241, 0.019);
+  border-radius: 20;
   margin-right: 12;
   vertical-align: center;
 }
@@ -269,13 +272,6 @@ export default Vue.extend({
   padding: 2 0;
 }
 
-.setting-title {
-  font-size: 16;
-  font-weight: $font-weight-semibold;
-  color: $text-primary;
-  margin-bottom: 3;
-  letter-spacing: 0;
-}
 
 .setting-description {
   font-size: 14;
