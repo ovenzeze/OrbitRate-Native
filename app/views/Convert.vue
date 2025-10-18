@@ -214,13 +214,22 @@ export default Vue.extend({
 
     async refreshRates() {
       console.log('Refreshing rates...');
-      await this.fetchRates();
+      try {
+        await this.fetchRates();
+      } catch (error) {
+        console.error('Failed to refresh rates:', error);
+        // 可以在这里添加用户友好的错误提示
+      }
     },
 
     async loadQuickPair(from: string, to: string) {
       console.log(`Loading pair: ${from} → ${to}`);
-      this.setFromCurrency(from);
-      this.setToCurrency(to);
+      try {
+        this.setFromCurrency(from);
+        this.setToCurrency(to);
+      } catch (error) {
+        console.error('Failed to load quick pair:', error);
+      }
     },
 
     async saveConversion() {
