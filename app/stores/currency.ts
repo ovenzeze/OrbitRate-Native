@@ -44,6 +44,12 @@ export const useCurrencyStore = defineStore('currency', {
   actions: {
     async fetchRates(baseCurrency?: string) {
       const base = baseCurrency || this.fromCurrency
+      
+      // 防止重复请求
+      if (this.isLoading) {
+        return
+      }
+
       this.isLoading = true
       this.error = null
 
@@ -57,6 +63,7 @@ export const useCurrencyStore = defineStore('currency', {
       } catch (error: any) {
         this.error = error.message
         console.error('[CurrencyStore] Failed to fetch rates:', error)
+        throw error // 重新抛出错误以便组件处理
       } finally {
         this.isLoading = false
       }
@@ -69,17 +76,24 @@ export const useCurrencyStore = defineStore('currency', {
     },
 
     setFromCurrency(currency: string) {
+      if (this.fromCurrency === currency) return
+      
       this.fromCurrency = currency
       this.fetchRates(currency)
     },
 
     setToCurrency(currency: string) {
+      if (this.toCurrency === currency) return
+      
       this.toCurrency = currency
       this.updateCurrentRate()
     },
 
     setAmount(amount: number) {
-      this.amount = Math.max(0, amount)
+      const validAmount = Math.max(0, Number(amount) || 0)
+      if (this.amount !== validAmount) {
+        this.amount = validAmount
+      }
     },
 
     swapCurrencies() {
@@ -87,6 +101,11 @@ export const useCurrencyStore = defineStore('currency', {
       this.fromCurrency = this.toCurrency
       this.toCurrency = temp
       this.fetchRates()
+    },
+
+    // 添加清理方法
+    clearError() {
+      this.error = null
     }
   }
 })

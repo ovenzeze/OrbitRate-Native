@@ -6,10 +6,33 @@ module.exports = (env) => {
 	// Learn how to customize:
 	// https://docs.nativescript.org/webpack
 
-	// Temporarily disable Tailwind plugin to avoid pnpm global dependency issues
+	// Configure PostCSS and Tailwind CSS support
 	webpack.chainWebpack(config => {
-		// Remove @nativescript/tailwind plugin if it exists
-		const configChain = config.toConfig();
+		// Add PostCSS loader for CSS processing
+		config.module
+			.rule('css')
+			.test(/\.css$/)
+			.use('postcss-loader')
+			.loader('postcss-loader')
+			.options({
+				postcssOptions: {
+					plugins: [
+						require('tailwindcss'),
+						require('autoprefixer')
+					]
+				}
+			});
+
+		// Add SCSS support
+		config.module
+			.rule('scss')
+			.test(/\.scss$/)
+			.use('sass-loader')
+			.loader('sass-loader')
+			.options({
+				implementation: require('sass')
+			});
+
 		return config;
 	});
 
