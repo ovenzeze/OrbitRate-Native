@@ -1,5 +1,9 @@
 <template>
-  <ScrollView class="page" scrollBarIndicatorVisible="false">
+  <Page class="page">
+    <ActionBar title="Currency" flat="true" />
+    
+    <GridLayout rows="*, auto">
+      <ScrollView row="0" scrollBarIndicatorVisible="false">
     <StackLayout class="container fade-in">
       <!-- Subtitle -->
       <Label text="Real-time exchange rates" class="text-secondary font-crimson" style="font-size: 14; margin: 0 0 16 0; opacity: 0.7;" />
@@ -122,7 +126,12 @@
         </GridLayout>
       </StackLayout>
     </StackLayout>
-  </ScrollView>
+      </ScrollView>
+      
+      <!-- 底部导航栏 -->
+      <BottomNavBar row="1" activeTab="convert" />
+    </GridLayout>
+  </Page>
 </template>
 
 <script lang="ts">
@@ -133,12 +142,14 @@ import { useCurrencyStore } from '~/stores/currency';
 import { useHistoryStore } from '~/stores/history';
 import CountryFlag from '../components/CountryFlag.vue';
 import Icon from '../components/Icon.vue';
+import BottomNavBar from '../components/layout/BottomNavBar.vue';
 
 export default Vue.extend({
   name: 'Convert',
   components: {
     CountryFlag,
-    Icon
+    Icon,
+    BottomNavBar
   },
   data() {
     return {
@@ -249,7 +260,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-@import '../styles/variables';
+@use '../styles/variables' as *;
 
 .container {
   padding: 8 $spacing-page $spacing-page $spacing-page;

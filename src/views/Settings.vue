@@ -1,5 +1,9 @@
 <template>
-  <ScrollView class="page">
+  <Page class="page">
+    <ActionBar title="Settings" flat="true" />
+    
+    <GridLayout rows="*, auto">
+      <ScrollView row="0">
     <StackLayout class="container">
       <!-- Appearance Section -->
       <Label text="APPEARANCE" class="section-header" />
@@ -106,18 +110,27 @@
         <Label text="© 2025 OrbitRate" class="footer-text" />
       </StackLayout>
     </StackLayout>
-  </ScrollView>
+      </ScrollView>
+      
+      <!-- 底部导航栏 -->
+      <BottomNavBar row="1" activeTab="settings" />
+    </GridLayout>
+  </Page>
 </template>
 
 <script lang="ts">
 import Vue from 'nativescript-vue';
 import { NativeScriptService } from '~/services/core/nativescript.service';
+import BottomNavBar from '../components/layout/BottomNavBar.vue';
 
 const THEME_KEY = 'app_theme';
 const LAST_UPDATE_KEY = 'data_last_update';
 
 export default Vue.extend({
   name: 'Settings',
+  components: {
+    BottomNavBar
+  },
   data() {
     return {
       isDarkMode: true, // Default to dark mode
@@ -204,7 +217,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-@import '../styles/variables';
+@use '../styles/variables' as *;
 
 .container {
   padding: $spacing-page;

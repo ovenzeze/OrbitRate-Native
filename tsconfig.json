@@ -1,26 +1,25 @@
 {
   "compilerOptions": {
-    "strict": true,
+    "module": "ESNext",
     "target": "ES2020",
-    "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["ESNext"],
-    "sourceMap": true,
-    "noEmitHelpers": true,
-    "importHelpers": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["app/*"],
-      "@/*": ["app/*"]
-    },
-    "typeRoots": ["types", "node_modules/@types"],
-    "types": ["node"],
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": true
+    "noEmitHelpers": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "lib": ["ESNext", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "@/*": ["src/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "importHelpers": true
   },
-  "include": ["app", "types"],
+  "include": ["src/**/*"],
+  "files": ["types/references.d.ts"],
   "exclude": ["node_modules", "platforms"]
 }

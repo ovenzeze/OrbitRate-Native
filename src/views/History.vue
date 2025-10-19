@@ -8,7 +8,8 @@
       />
     </ActionBar>
     
-    <ScrollView>
+    <GridLayout rows="*, auto">
+      <ScrollView row="0">
       <StackLayout class="container">
         <Label text="Recent conversions" class="text-secondary" style="font-size: 15; margin-bottom: 24;" />
         
@@ -89,12 +90,17 @@
           </StackLayout>
         </StackLayout>
       </StackLayout>
-    </ScrollView>
+      </ScrollView>
+      
+      <!-- 底部导航栏 -->
+      <BottomNavBar row="1" activeTab="history" />
+    </GridLayout>
   </Page>
 </template>
 
 <script lang="ts">
 import Vue from 'nativescript-vue';
+import BottomNavBar from '../components/layout/BottomNavBar.vue';
 
 interface HistoryItem {
   id: string;
@@ -110,6 +116,9 @@ interface HistoryItem {
 
 export default Vue.extend({
   name: 'History',
+  components: {
+    BottomNavBar
+  },
   data() {
     return {
       historyItems: [] as HistoryItem[]
@@ -138,7 +147,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-@import '../styles/variables';
+@use '../styles/variables' as *;
 
 .container {
   padding: $spacing-page;

@@ -1,5 +1,5 @@
 // OrbitRate 全局样式
-@import './variables';
+@use './variables' as *;
 
 // ==================== FontAwesome 字体配置 ====================
 // 使用 FontAwesome 5 字体族名称 (兼容性更好)
